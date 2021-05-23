@@ -38,7 +38,7 @@ if __name__ == '__main__':
     t.execute()                                                      # run
 ```
 
-第一次运行：
+第一次运行:
 ```shell
 2021-05-23 15:13:44,014 The execution path is ['execute_1_notes', 'execute_1_2_initial', 'execute_2_1', 'execute_3_comments'].
 2021-05-23 15:14:01,509 execute_1_notes running.
@@ -52,8 +52,9 @@ asdef
 {'0': 10, '1': 11, '2': 12, '3': 13, '4': 14, '5': 15, '6': 16, '7': 17, '8': 18, '9': 19}
 ```
 
-第二次运行：
+第二次运行:
 ```shell
+2021-05-23 15:13:44,014 The execution path is ['execute_1_notes', 'execute_1_2_initial', 'execute_2_1', 'execute_3_comments'].
 2021-05-23 15:18:36,323 execute_1_notes running.
 2021-05-23 15:18:36,324 execute_3_comments running.
 2021-05-23 15:18:36,332 execute_1_2_initial results is loaded by file /tmp/TestClass_execute_1_2_initial.plk.zip.
@@ -63,8 +64,22 @@ asdef
 {'0': 10, '1': 11, '2': 12, '3': 13, '4': 14, '5': 15, '6': 16, '7': 17, '8': 18, '9': 19}
 ```
 
-缓存目录情况：
+缓存目录情况, 删除其中一个文件：
 ```shell
 $ ls /tmp
 TestClass_execute_1_2_initial.plk.zip    TestClass_execute_2_1.plk.zip
+$ rm /tmp/TestClass_execute_2_1.plk.zip
+```
+
+再次运行:
+```shell
+2021-05-23 15:26:07,100 The execution path is ['execute_1_notes', 'execute_1_2_initial', 'execute_2_1', 'execute_3_comments'].
+2021-05-23 15:26:10,623 execute_1_notes running.
+2021-05-23 15:26:10,624 execute_2_1 running.
+2021-05-23 15:26:10,632 execute_1_2_initial results is loaded by file /tmp/TestClass_execute_1_2_initial.plk.zip.
+2021-05-23 15:26:10,633 execute_2_1 results is saved to file /tmp/TestClass_execute_2_1.plk.zip.
+2021-05-23 15:26:10,634 execute_3_comments running.
+asdef
+10
+{'0': 10, '1': 11, '2': 12, '3': 13, '4': 14, '5': 15, '6': 16, '7': 17, '8': 18, '9': 19}
 ```
